@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------
+   Theme Variables System (Premium & Content-Focused)
+   --------------------------------------------------------- */
+:root {
+  /* Default: Dark Mode (Linear/Vercel inspired) */
+  --bg-color: #0A0A0A;
+  --fg-color: #EDEDED;
+  --fg-muted: #A0A0A0;
+  --accent-color: #C89B6D;
+  --accent-hover: #B28559;
+  --border-color: #222222;
+  --card-bg: #121212;
+  --card-hover: #1A1A1A;
+  --nav-bg: rgba(10, 10, 10, 0.8);
+  --tooltip-bg: #1E1E1E;
+  --tooltip-fg: #FFFFFF;
+}
+
+[data-theme="theme-dark"] {
+  --bg-color: #0A0A0A;
+  --fg-color: #EDEDED;
+  --fg-muted: #A0A0A0;
+  --accent-color: #C89B6D;
+  --accent-hover: #B28559;
+  --border-color: #222222;
+  --card-bg: #121212;
+  --card-hover: #1A1A1A;
+  --nav-bg: rgba(10, 10, 10, 0.8);
+  --tooltip-bg: #1E1E1E;
+  --tooltip-fg: #FFFFFF;
+}
+
+[data-theme="theme-light"] {
+  --bg-color: #FAFAFA;
+  --fg-color: #171717;
+  --fg-muted: #666666;
+  --accent-color: #2563EB; /* Clean Blue */
+  --accent-hover: #1D4ED8;
+  --border-color: #E5E5E5;
+  --card-bg: #FFFFFF;
+  --card-hover: #F5F5F5;
+  --nav-bg: rgba(250, 250, 250, 0.8);
+  --tooltip-bg: #171717;
+  --tooltip-fg: #FAFAFA;
+}
+
+[data-theme="theme-sepia"] {
+  --bg-color: #F4EBD0;
+  --fg-color: #3B2F2F;
+  --fg-muted: #6B5B5B;
+  --accent-color: #8B5E3C;
+  --accent-hover: #754E30;
+  --border-color: #D8C8A8;
+  --card-bg: #FAF3E0;
+  --card-hover: #E8DCC0;
+  --nav-bg: rgba(244, 235, 208, 0.8);
+  --tooltip-bg: #3B2F2F;
+  --tooltip-fg: #FAF3E0;
+}
+
+[data-theme="theme-green"] {
+  --bg-color: #050505;
+  --fg-color: #00FF88; /* Cyberpunk Green */
+  --fg-muted: #00AA5E;
+  --accent-color: #00FF88;
+  --accent-hover: #00CC6F;
+  --border-color: #113A22;
+  --card-bg: #0C0C0C;
+  --card-hover: #121212;
+  --nav-bg: rgba(5, 5, 5, 0.8);
+  --tooltip-bg: #00FF88;
+  --tooltip-fg: #050505;
+}
+
+/* ---------------------------------------------------------
+   Global Styles
+   --------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Navbar gap spacing */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: auto;
+  width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+/* ---------------------------------------------------------
+   Utilities & Typography helper
+   --------------------------------------------------------- */
+.font-headline {
+  font-family: var(--font-outfit), var(--font-inter), sans-serif;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--fg-color) 30%, var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Tooltip transition utility */
+.tooltip-trigger:hover .tooltip-card {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.glassmorphism {
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
